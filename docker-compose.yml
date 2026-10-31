@@ -1,0 +1,10 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: ${CONTAINER_NAME}
+    volumes:
+      #- ./uptime-kuma-data:/app/data
+      - /var/lib/docker/volumes/${CONTAINER_NAME}/data:/app/data
+    ports:
+      - ${ext_port}:${int_port}  # <Host Port>:<Container Port>
+    restart: always
